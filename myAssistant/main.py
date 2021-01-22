@@ -57,6 +57,7 @@ def dos_can():
         )
         navBar = browser.find_element_by_id('salesInformation')
         print(navBar.text)
+        print('-----------------------')
         nslist = navBar.find_elements_by_class_name('new_house_sale_list')
 
         csList = nslist[0].find_elements_by_class_name('text_ellipsis')
