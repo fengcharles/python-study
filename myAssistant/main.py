@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as Expect
 from selenium.webdriver.support.ui import WebDriverWait as Wait
+from selenium.webdriver import FirefoxOptions
 
 # 云麓里销售页面
 url = 'http://www.fangdi.com.cn/new_house/new_house_detail.html?project_id=069c616823d32fc8'
@@ -37,9 +38,11 @@ def dos_can():
         # profile.set_preference('network.proxy.http', '127.0.0.1')
         # profile.set_preference('network.proxy.http_port', proxy.port)
         profile.update_preferences()
+        options = FirefoxOptions()
+        options.add_argument('--headless')
         driver_path = load_driver_path()
         print(driver_path)
-        browser = webdriver.Firefox(firefox_profile=profile, executable_path=driver_path)
+        browser = webdriver.Firefox(options=options, executable_path=driver_path)
 
         # proxy.new_har(options={
         #     'captureContent': True,
