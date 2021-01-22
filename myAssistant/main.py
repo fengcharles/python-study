@@ -1,3 +1,5 @@
+#-*-coding:utf-8-*-
+
 import platform
 import sys
 from selenium import webdriver
