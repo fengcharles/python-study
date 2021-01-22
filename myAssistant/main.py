@@ -38,6 +38,7 @@ def dos_can():
         # profile.set_preference('network.proxy.http_port', proxy.port)
         profile.update_preferences()
         driver_path = load_driver_path()
+        print(driver_path)
         browser = webdriver.Firefox(firefox_profile=profile, executable_path=driver_path)
 
         # proxy.new_har(options={
