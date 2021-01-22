@@ -56,7 +56,7 @@ def dos_can():
             Expect.presence_of_element_located((By.ID, "salesInformation"))
         )
         navBar = browser.find_element_by_id('salesInformation')
-        print(navBar.text)
+        print(str(navBar.text).encode(encoding='utf-8'))
         print('-----------------------')
         nslist = navBar.find_elements_by_class_name('new_house_sale_list')
 
