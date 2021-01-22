@@ -5,6 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as Expect
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver import FirefoxOptions
+from chardet import detect
 
 # 云麓里销售页面
 url = 'http://www.fangdi.com.cn/new_house/new_house_detail.html?project_id=069c616823d32fc8'
@@ -56,21 +57,21 @@ def dos_can():
             Expect.presence_of_element_located((By.ID, "salesInformation"))
         )
         navBar = browser.find_element_by_id('salesInformation')
-        print(str(navBar.text).encode(encoding='utf-8'))
+        print(str(navBar.text))
         print('-----------------------')
-        nslist = navBar.find_elements_by_class_name('new_house_sale_list')
-
-        csList = nslist[0].find_elements_by_class_name('text_ellipsis')
-        print(csList[0].text)
-
-        csList1 = nslist[1].find_elements_by_class_name('text_ellipsis')
-        print(csList1[0].text)
-
-        csList1 = nslist[3].find_elements_by_class_name('text_ellipsis')
-        print(csList1[0].text)
-
-        csList1 = nslist[5].find_elements_by_class_name('text_ellipsis')
-        print(csList1[0].text)
+        # nslist = navBar.find_elements_by_class_name('new_house_sale_list')
+        #
+        # csList = nslist[0].find_elements_by_class_name('text_ellipsis')
+        # print(csList[0].text)
+        #
+        # csList1 = nslist[1].find_elements_by_class_name('text_ellipsis')
+        # print(csList1[0].text)
+        #
+        # csList1 = nslist[3].find_elements_by_class_name('text_ellipsis')
+        # print(csList1[0].text)
+        #
+        # csList1 = nslist[5].find_elements_by_class_name('text_ellipsis')
+        # print(csList1[0].text)
     finally:
         # proxy.close()
         # server.stop()
