@@ -6,6 +6,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as Expect
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from selenium.webdriver import FirefoxOptions
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 
 # 云麓里销售页面
 url = 'http://www.fangdi.com.cn/new_house/new_house_detail.html?project_id=069c616823d32fc8'
@@ -16,8 +17,10 @@ def load_driver_path():
     platform = sys.platform
 
     if platform.__contains__('darwin'):
+        print('System is OsX')
         return 'driver/mac_geckodriver'
     if platform.__contains__('linux'):
+        print('System is linux')
         return 'driver/linux_geckodriver'
 
 def dos_can():
@@ -34,6 +37,7 @@ def dos_can():
         # print('proxy', proxy.proxy)
 
         # 启动浏览器
+
         profile = webdriver.FirefoxProfile()
         # profile.set_preference('network.proxy.type', 1)
         # profile.set_preference('network.proxy.http', '127.0.0.1')
@@ -42,7 +46,6 @@ def dos_can():
         options = FirefoxOptions()
         options.add_argument('--headless')
         driver_path = load_driver_path()
-        print(driver_path)
         browser = webdriver.Firefox(options=options, executable_path=driver_path)
 
         # proxy.new_har(options={
