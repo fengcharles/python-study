@@ -27,6 +27,7 @@ def load_driver_path():
 
 
 def dos_can():
+    global browser
     try:
         mesg = ''
         # 启动浏览器
